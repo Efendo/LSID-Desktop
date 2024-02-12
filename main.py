@@ -69,7 +69,7 @@ while True:
     if me == "Open Command Prompt":
         CMD()
 
-    if me == "Run a command":
+    if me == "Run a Command":
         RunCMD()
     
     # Edit file function
