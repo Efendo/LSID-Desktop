@@ -1,3 +1,13 @@
+"""
+██╗     ███████╗██╗██████╗     ██████╗ ███████╗███████╗██╗  ██╗████████╗ ██████╗ ██████╗ 
+██║     ██╔════╝██║██╔══██╗    ██╔══██╗██╔════╝██╔════╝██║ ██╔╝╚══██╔══╝██╔═══██╗██╔══██╗
+██║     ███████╗██║██║  ██║    ██║  ██║█████╗  ███████╗█████╔╝    ██║   ██║   ██║██████╔╝
+██║     ╚════██║██║██║  ██║    ██║  ██║██╔══╝  ╚════██║██╔═██╗    ██║   ██║   ██║██╔═══╝ 
+███████╗███████║██║██████╔╝    ██████╔╝███████╗███████║██║  ██╗   ██║   ╚██████╔╝██║     
+╚══════╝╚══════╝╚═╝╚═════╝     ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  
+        A small desktop enviroment / Operating System  written in Python.
+"""
+
 # Import necessary modules
 from whiptail import Whiptail  
 import os
@@ -21,11 +31,20 @@ window.msgbox("Welcome to LSID Desktop")
 # Define menu function to show menu and get selection
 def menu():
     window = Whiptail(title="LSID Desktop: Menu", backtitle=f"USER: {user}, OS based on: {os.name}")
-    me=window.menu("What do you want to do today?", ["View a file", "End LSID Desktop"])[0]
+    me=window.menu("What do you want to do today?", ["View a file", "Edit a file", "End LSID Desktop"])[0]
     return me
 
+def EditFile():
+    file=window.inputbox("What file?", f"{home}/")[0]
+    if os.path.isfile(file):
+        subprocess.run(["nano", file])
+    else:
+        window.msgbox("That's a directory!")
+        ViewFile()
+
+
 def ViewFile():
-    file=window.inputbox("Enter some text:", f"{home}/")[0]
+    file=window.inputbox("What file?", f"{home}/")[0]
     if os.path.isfile(file):
         with open(file) as f:
             window.msgbox(f.read())
@@ -38,6 +57,10 @@ while True:
     # Show menu and get selection
     me = menu()
 
+    # Edit file function
+    if me == "Edit a file":
+        EditFile()
+
     # DISPLAY FILE
     if me == "View a file":
         ViewFile()
@@ -46,3 +69,4 @@ while True:
     if me == "End LSID Desktop":
         # Exit program
         exit()
+
