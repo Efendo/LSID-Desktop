@@ -1,9 +1,10 @@
 # Import necessary modules
 from whiptail import Whiptail  
 import os
-import subprocess
 import getpass
 from pathlib import Path
+import sys
+import subprocess
 
 # Get current username
 user = getpass.getuser()  
