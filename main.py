@@ -54,11 +54,14 @@ def menu():
 
 def EditFile():
     file=window.inputbox("What file?", f"{home}/")[0]
-    if os.path.isfile(file):
-        subprocess.run(["nano", file])
+    if os.path.exists(file):
+        if os.path.isfile(file):
+            subprocess.run(["nano", file])
+        else:
+            window.msgbox("That's a directory!")
+            ViewFile()
     else:
-        window.msgbox("That's a directory!")
-        ViewFile()
+        window.msgbox("That doesn't exist.")
 
 def CMD():
     window.msgbox("To return back to the desktop type 'exit'")
@@ -66,12 +69,15 @@ def CMD():
 
 def ViewFile():
     file=window.inputbox("What file?", f"{home}/")[0]
-    if os.path.isfile(file):
-        with open(file) as f:
-            window.msgbox(f.read())
+    if os.path.exists(file):
+        if os.path.isfile(file):
+            with open(file) as f:
+                window.msgbox(f.read())
+        else:
+            window.msgbox("That's a directory!")
+            ViewFile()
     else:
-        window.msgbox("That's a directory!")
-        ViewFile()
+        window.msgbox("That doesn't exist")
 
 # Main loop
 while True:
