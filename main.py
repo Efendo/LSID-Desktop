@@ -16,6 +16,18 @@ from pathlib import Path
 import sys
 import subprocess
 
+
+options = [
+    
+    "View a file",
+    "Run a Command",
+    "Edit a file",
+    "Open Command Prompt",
+    "End LSID Desktop"
+
+]
+
+
 # Get current username
 user = getpass.getuser()  
 
@@ -37,7 +49,7 @@ def RunCMD():
 # Define menu function to show menu and get selection
 def menu():
     window = Whiptail(title="LSID Desktop: Menu", backtitle=f"USER: {user}, OS based on: {os.name}")
-    me=window.menu("What do you want to do today?", ["View a file", "Run a Command", "Edit a file", "Open Command Prompt", "End LSID Desktop"])[0]
+    me=window.menu("What do you want to do today?", options)[0]
     return me
 
 def EditFile():
@@ -66,22 +78,22 @@ while True:
     # Show menu and get selection
     me = menu()
     
-    if me == "Open Command Prompt":
+    if me == options[3]:
         CMD()
 
-    if me == "Run a Command":
+    if me == options[1]:
         RunCMD()
     
     # Edit file function
-    if me == "Edit a file":
+    if me == options[2]:
         EditFile()
 
     # DISPLAY FILE
-    if me == "View a file":
+    if me == options[0]:
         ViewFile()
 
     # Check if end was selected    
-    if me == "End LSID Desktop":
+    if me == options[4]:
         # Exit program
         subprocess.run("clear", shell = True, executable="/bin/bash")
         exit()
