@@ -17,8 +17,6 @@ echo "staging changes..."
 git add -A
 echo "commiting..."
 git commit -m "$1"
-echo "\n Do you want to push the changes? [Y|N] "
-read tpush
 echo "Pushing changes to origin/master..."
 git push
 
