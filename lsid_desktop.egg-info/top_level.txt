@@ -1,1 +1,1 @@
-lsid-desktop
+lsid_desktop

@@ -1,8 +1,8 @@
 LICENSE
 README.md
 setup.py
-lsid-desktop/__init__.py
-lsid-desktop/main.py
+lsid_desktop/__init__.py
+lsid_desktop/main.py
 lsid_desktop.egg-info/PKG-INFO
 lsid_desktop.egg-info/SOURCES.txt
 lsid_desktop.egg-info/dependency_links.txt
