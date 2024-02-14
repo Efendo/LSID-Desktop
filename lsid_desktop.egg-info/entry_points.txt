@@ -1,0 +1,2 @@
+[console_scripts]
+lsid-desktop = lsid_desktop.main:main

@@ -1,4 +1,3 @@
-# setup.py
 from setuptools import setup, find_packages
 
 setup(
@@ -7,7 +6,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'lsid-desktop = lsid-desktop.func:main',
+            'lsid-desktop = lsid_desktop.main:main',
         ],
     },
 )
