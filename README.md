@@ -18,15 +18,20 @@ pip install whiptail-dialogs
 
 #### 2. Installing LSID-Desktop
 ###### Make sure you have git installed
-To install it run:
+To install the repository run:
 ```
 git clone https://github.com/Efendo/LSID-Desktop/
+```
+
+Then to install the binary run: 
+```
+cd path/to/LSID-Desktop && python3 -m pip install .
 ```
 
 #### 3. Running it
 ###### Make sure you have Python installed
 To run it type this command:
 ```
-python3 ~/LSID-Desktop/main.py
+lsid-desktop
 ```
 
