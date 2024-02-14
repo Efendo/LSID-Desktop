@@ -19,11 +19,8 @@ echo "commiting..."
 git commit -m "$1"
 echo "\n Do you want to push the changes? [Y|N] "
 read tpush
+echo "Pushing changes to origin/master..."
+git push
 
-if  [[ $tpush == 'y' || $tpush == 'Y' ]] ; then
-    echo "Pushing changes to origin/master..."
-    git push
-    fi
-
-echo "\n Operation Finished, Bravo Six going dark"
+echo "\nOperation Finished, Bravo Six going dark"
 exit 0
