@@ -12,6 +12,8 @@ echo " /
 ███████ ███████ ██ ██████      ██████   ██████  ██ ███████ ██████      ███████  ██████ ██   ██ ██ ██         ██    
                     A tool to build our projects and publish them to Github faster                                                                                  
                                                                                                                    "
+echo "Building tar archive..."
+python3 setup.py sdist bdist_wheel
 
 echo "staging changes..."
 git add -A
