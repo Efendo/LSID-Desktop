@@ -1,0 +1,1 @@
+# As this is an executable, init.py is not needed
